@@ -206,6 +206,14 @@ public class InAppWebViewMethodHandler implements MethodChannel.MethodCallHandle
           result.notImplemented();
         }
         break;
+      case "isHidden":
+        if (webView != null && webView.inAppBrowserDelegate != null && webView.inAppBrowserDelegate instanceof InAppBrowserActivity) {
+          InAppBrowserActivity inAppBrowserActivity = (InAppBrowserActivity) webView.inAppBrowserDelegate;
+          result.success(inAppBrowserActivity.isHidden);
+        } else {
+          result.notImplemented();
+        }
+        break;
       case "show":
         if (webView != null && webView.inAppBrowserDelegate != null && webView.inAppBrowserDelegate instanceof InAppBrowserActivity) {
           InAppBrowserActivity inAppBrowserActivity = (InAppBrowserActivity) webView.inAppBrowserDelegate;

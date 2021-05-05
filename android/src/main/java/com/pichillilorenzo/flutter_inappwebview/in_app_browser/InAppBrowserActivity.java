@@ -314,7 +314,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
       isHidden = true;
       Intent openActivity = new Intent(this, Class.forName(fromActivity));
       openActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-      startActivityIfNeeded(openActivity, 0);
+      startActivity(openActivity);
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
       Log.d(LOG_TAG, e.getMessage());
@@ -325,7 +325,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     isHidden = false;
     Intent openActivity = new Intent(this, InAppBrowserActivity.class);
     openActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-    startActivityIfNeeded(openActivity, 0);
+    startActivity(openActivity);
   }
 
   public void goBackButtonClicked(MenuItem item) {
